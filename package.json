@@ -15,7 +15,9 @@
     "gui:prisma": "pnpm --filter ./application/back-end run gui:prisma",
     "build:back": "pnpm --filter ./application/back-end run build",
     "build:domain": "pnpm --filter ./package/domain run build",
-    "clear:dist": "rm -rf ./application/back-end/dist ./package/domain/dist ./package/common/dist"
+    "clear:dist": "rm -rf ./application/back-end/dist ./package/domain/dist ./package/common/dist",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write ."
   },
   "license": "ISC",
   "devDependencies": {
