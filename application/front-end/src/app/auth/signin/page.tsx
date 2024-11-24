@@ -2,7 +2,7 @@ import { AuthCard } from '@/presentation/login/components/auth-card';
 
 export default function SignInPage() {
   return (
-    <div className="flex w-auto max-w-[400px] flex-col justify-center">
+    <div className="w-auto max-w-[400px]">
       <AuthCard />
     </div>
   );

@@ -1,3 +1,10 @@
+import { RoleCard } from "@/presentation/onboarding/choose-role/role-card";
+
 export default function ChooseRolePage() {
-  return <div>ChooseRolePage</div>;
+	return (
+		<div className="flex items-center justify-center gap-8">
+			<RoleCard role={'mentor'} text={'mentor'} />
+			<RoleCard role={'mentee'} text={'mentee'} />
+		</div>
+	);
 }
