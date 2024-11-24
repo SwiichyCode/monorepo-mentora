@@ -1,7 +1,8 @@
-import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import { type Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 export default {
+<<<<<<< HEAD
     darkMode: ["class"],
     content: ["./src/**/*.tsx"],
   theme: {
@@ -57,6 +58,15 @@ export default {
   			}
   		}
   	}
+=======
+  content: ['./src/**/*.tsx'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
+      },
+    },
+>>>>>>> 5f4bb2eb6a708b654f4583ba841916b592754d08
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
