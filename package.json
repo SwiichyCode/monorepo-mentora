@@ -1,0 +1,32 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build --verbose tsconfig.build.json",
+    "dev": "pnpm --filter ./application/back-end run update:prisma && pnpm run --parallel dev",
+    "start": "pnpm --filter ./application/back-end run start",
+    "dev:domain": "pnpm --filter ./package/domain run dev",
+    "dev:common": "pnpm --filter ./package/common run dev",
+    "dev:back": "pnpm --filter ./application/back-end run dev",
+    "dev:front": "pnpm --filter ./application/front-end run dev",
+    "test:back": "pnpm --filter ./application/back-end run test",
+    "test_watch:back": "pnpm --filter ./application/back-end run test_watch",
+    "gui:prisma": "pnpm --filter ./application/back-end run gui:prisma",
+    "build:back": "pnpm --filter ./application/back-end run build",
+    "build:domain": "pnpm --filter ./package/domain run build",
+    "clear:dist": "rm -rf ./application/back-end/dist ./package/domain/dist ./package/common/dist"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.8",
+    "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "eslint": "^9.15.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  }
+}

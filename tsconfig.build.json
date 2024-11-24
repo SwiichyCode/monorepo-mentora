@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "application/back-end"
+    },
+    {
+      "path": "application/front-end"
+    },
+    {
+      "path": "package/domain"
+    },
+    {
+      "path": "package/common"
+    }
+  ]
+}
