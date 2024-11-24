@@ -1,13 +1,12 @@
-import { Button } from '@/presentation/components/ui/button';
+import { AuthButton } from './auth-button';
+import { Mail, Github } from 'lucide-react';
 
-type AuthCardProps = {
-  strategie: 'gmail' | 'github';
-};
 
-export const AuthCard = ({ strategie }: AuthCardProps) => {
+export const AuthCard = () => {
   return (
-    <Button variant="outline" size="icon" className="w-full">
-      {strategie}
-    </Button>
+    <div className='flex flex-col w-80 items-center gap-4'>
+      <AuthButton provider={'Gmail'} icon={Mail} />
+      <AuthButton provider={'Github'} icon={Github} />
+    </div>
   );
 };
