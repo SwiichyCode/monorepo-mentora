@@ -6,7 +6,6 @@ import {
   CardTitle,
 } from '@/presentation/components/ui/card';
 import { RoleButton } from './role-button';
-import { PATH } from '@common/constants';
 import React from 'react';
 import { cn } from '@/config/libs/utils';
 
