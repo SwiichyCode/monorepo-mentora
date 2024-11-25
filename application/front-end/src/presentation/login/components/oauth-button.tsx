@@ -8,7 +8,7 @@ type AuthProviderProps = {
   provider: 'gmail' | 'github';
 };
 
-const AuthButtonIcon = ({ provider }: AuthProviderProps) => {
+const OauthButtonIcon = ({ provider }: AuthProviderProps) => {
   switch (provider) {
     case 'gmail':
       return <Mail className="h-5 w-5" />;
@@ -17,12 +17,12 @@ const AuthButtonIcon = ({ provider }: AuthProviderProps) => {
   }
 };
 
-export const AuthButton = ({ provider }: AuthProviderProps) => {
+export const OauthButton = ({ provider }: AuthProviderProps) => {
   const providerName = provider.charAt(0).toUpperCase() + provider.slice(1);
 
   return (
     <Button onClick={() => signIn(provider)} className="flex w-full items-center gap-2">
-      <AuthButtonIcon provider={provider} />
+      <OauthButtonIcon provider={provider} />
       <span>Se connecter avec {providerName}</span>
     </Button>
   );

@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/presentation/components/ui/card';
-import { AuthButton } from './auth-button';
+import { OauthButton } from './oauth-button';
 
 type AuthCardProps = {
   title: string;
@@ -14,8 +14,8 @@ export const AuthCard = ({ title, description }: AuthCardProps) => {
         <CardDescription className="text-base">{description}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col items-center gap-4">
-        <AuthButton provider={'gmail'} />
-        <AuthButton provider={'github'} />
+        <OauthButton provider={'gmail'} />
+        <OauthButton provider={'github'} />
       </CardContent>
     </Card>
   );
