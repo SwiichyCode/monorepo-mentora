@@ -1,6 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/presentation/components/ui/card';
 import { AuthButton } from './auth-button';
-import { Mail, Github } from 'lucide-react';
 
 type AuthCardProps = {
   title: string;
@@ -15,8 +14,8 @@ export const AuthCard = ({ title, description }: AuthCardProps) => {
         <CardDescription className="text-base">{description}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col items-center gap-4">
-        <AuthButton provider={'Gmail'} icon={Mail} />
-        <AuthButton provider={'Github'} icon={Github} />
+        <AuthButton provider={'gmail'} />
+        <AuthButton provider={'github'} />
       </CardContent>
     </Card>
   );

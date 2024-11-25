@@ -1,15 +1,29 @@
-import { Button } from '@/presentation/components/ui/button';
+'use client';
 
-type AuthButtonProps = {
-  provider: 'Gmail' | 'Github';
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+import { Button } from '@/presentation/components/ui/button';
+import { Mail, Github } from 'lucide-react';
+import { signIn } from 'next-auth/react';
+
+type AuthProviderProps = {
+  provider: 'gmail' | 'github';
 };
 
-export const AuthButton = ({ provider, icon: Icon }: AuthButtonProps) => {
+const AuthButtonIcon = ({ provider }: AuthProviderProps) => {
+  switch (provider) {
+    case 'gmail':
+      return <Mail className="h-5 w-5" />;
+    case 'github':
+      return <Github className="h-5 w-5" />;
+  }
+};
+
+export const AuthButton = ({ provider }: AuthProviderProps) => {
+  const providerName = provider.charAt(0).toUpperCase() + provider.slice(1);
+
   return (
-    <Button className="flex w-full items-center gap-2">
-      <Icon className="h-5 w-5" />
-      <span>Se connecter avec {provider}</span>
+    <Button onClick={() => signIn(provider)} className="flex w-full items-center gap-2">
+      <AuthButtonIcon provider={provider} />
+      <span>Se connecter avec {providerName}</span>
     </Button>
   );
 };
