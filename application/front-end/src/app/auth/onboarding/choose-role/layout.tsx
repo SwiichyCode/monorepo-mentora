@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react';
 
 export default function ChooseRoleLayout({ children }: PropsWithChildren) {
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="py-2 text-2xl font-bold">Choose your role</h1>
+    <div className="flex flex-col items-center justify-center lg:h-screen">
+      <h1 className="text-4xl font-bold py-8">Sélectionne ton rôle</h1>
       {children}
     </div>
   );

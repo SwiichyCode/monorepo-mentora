@@ -7,7 +7,7 @@ export const AuthCard = () => {
     <Card className="flex flex-col gap-10 p-8">
       <div>
         <h1 className="py-2 text-2xl font-bold">Se connecter</h1>
-        <p className="text-black/60">
+        <p className="text-black/70">
           Envie de devenir mentor ou mentoré, connectez-vous pour commencer votre aventure !
         </p>
       </div>
