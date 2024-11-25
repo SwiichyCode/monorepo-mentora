@@ -1,15 +1,17 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/presentation/components/ui/card';
-import { RoleButton } from './role-button';
 import React from 'react';
-import { cn } from '@/config/libs/utils';
 
-type ChooseRoleProps = {
+import { cn } from '@/config/libs/utils';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/presentation/components/ui/card';
+
+import { RoleButton } from '../../signin/components/role-button';
+
+type ChooseRoleProperties = {
   role: 'mentor' | 'mentee';
   description: string;
   title: string;
 };
 
-export const RoleCard: React.FC<ChooseRoleProps> = ({ role, title, description }) => {
+export const RoleCard: React.FC<ChooseRoleProperties> = ({ role, title, description }) => {
   return (
     <>
       <Card

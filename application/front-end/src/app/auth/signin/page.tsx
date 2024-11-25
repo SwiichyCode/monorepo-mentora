@@ -1,4 +1,4 @@
-import { AuthCard } from '@/presentation/login/components/auth-card';
+import { AuthCard } from '@/presentation/signin/components/auth-card';
 
 export default function SignInPage() {
   return (

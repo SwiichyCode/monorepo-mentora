@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -6,18 +7,17 @@ import {
   CardHeader,
   CardTitle,
 } from '@/presentation/components/ui/card';
-import { OauthButton } from './oauth-button';
-import Link from 'next/link';
 import { Separator } from '@/presentation/components/ui/separator';
-import { PATH } from '@common/constants';
+import { OauthButton } from './oauth-button';
 import { cn } from '@/config/libs/utils';
+import { PATH } from '@common/constants';
 
-type AuthCardProps = {
+type AuthCardProperties = {
   title: string;
   description: string;
 };
 
-export const AuthCard = ({ title, description }: AuthCardProps) => {
+export const AuthCard = ({ title, description }: AuthCardProperties) => {
   return (
     <Card
       className={cn('m-auto h-max w-[380px] space-y-4', '[&]:border-0 [&]:shadow-none', 'sm:[&]:border sm:[&]:shadow')}

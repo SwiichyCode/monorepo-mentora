@@ -1,5 +1,6 @@
 import '@/config/styles/globals.css';
 
+// eslint-disable-next-line import/no-unresolved
 import { GeistSans } from 'geist/font/sans';
 import { type Metadata } from 'next';
 

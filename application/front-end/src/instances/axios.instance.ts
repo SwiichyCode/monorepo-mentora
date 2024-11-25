@@ -1,7 +1,7 @@
 //
 
-import axios from 'axios';
 import type { IHttpRepository } from '@domain/repositories';
+import axios from 'axios';
 
 const headers = {
   'Content-Type': 'application/json',

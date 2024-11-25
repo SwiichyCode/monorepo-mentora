@@ -1,4 +1,4 @@
-import { RoleCard } from '@/presentation/onboarding/choose-role/role-card';
+import { RoleCard } from '@/presentation/signin/components/role-card';
 
 export default function ChooseRolePage() {
   return (

@@ -1,23 +1,26 @@
 'use client';
 
-import { Button } from '@/presentation/components/ui/button';
-import { Mail, Github } from 'lucide-react';
+import { Github, Mail } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 
-type OauthProviderProps = {
+import { Button } from '@/presentation/components/ui/button';
+
+type OauthProviderProperties = {
   provider: 'gmail' | 'github';
 };
 
-const OauthButtonIcon = ({ provider }: OauthProviderProps) => {
+const OauthButtonIcon = ({ provider }: OauthProviderProperties) => {
   switch (provider) {
-    case 'gmail':
+    case 'gmail': {
       return <Mail className="h-5 w-5" />;
-    case 'github':
+    }
+    case 'github': {
       return <Github className="h-5 w-5" />;
+    }
   }
 };
 
-export const OauthButton = ({ provider }: OauthProviderProps) => {
+export const OauthButton = ({ provider }: OauthProviderProperties) => {
   const providerName = provider.charAt(0).toUpperCase() + provider.slice(1);
 
   return (
