@@ -4,6 +4,7 @@ import GithubProvider from 'next-auth/providers/github';
 
 import { db } from '@/config/server/db';
 import { env } from '@/config/env';
+import { Adapter } from 'next-auth/adapters';
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -15,16 +16,15 @@ declare module 'next-auth' {
   interface Session extends DefaultSession {
     user: {
       id: string;
-      onboardingCompleted: boolean;
       // ...other properties
-      // role: UserRole;
+      onboarding_completed: boolean;
     } & DefaultSession['user'];
   }
 
   interface User {
     // ...other properties
     // role: UserRole;
-    onboardingCompleted: boolean;
+    onboarding_completed: boolean;
   }
 }
 
@@ -40,14 +40,14 @@ export const authConfig = {
       clientSecret: env.AUTH_GITHUB_SECRET,
     }),
   ],
-  adapter: PrismaAdapter(db),
+  adapter: PrismaAdapter(db) as Adapter,
   callbacks: {
     session: ({ session, user }) => ({
       ...session,
       user: {
         ...session.user,
         id: user.id,
-        onboardingCompleted: user.onboardingCompleted,
+        onboarding_completed: user.onboarding_completed,
       },
     }),
 
