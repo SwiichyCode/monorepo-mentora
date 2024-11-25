@@ -1,13 +1,15 @@
-import { Button } from "@/presentation/components/ui/button";
+import { Button } from '@/presentation/components/ui/button';
+import { PATH } from '@common/constants';
+import Link from 'next/link';
 
 interface RoleButtonProps {
-	text: string;
+  text: string;
 }
 
 export const RoleButton = ({ text }: RoleButtonProps) => {
-		return (
-			<Button className="flex w-full items-center gap-2">
-				<span>{text}</span>
-			</Button>
-		);
-}
+  return (
+    <Link href={text === 'Devenir mentor' ? PATH.AUTH.ONBOARDING.MENTOR : PATH.AUTH.ONBOARDING.MENTEE}>
+      <Button>{text}</Button>
+    </Link>
+  );
+};

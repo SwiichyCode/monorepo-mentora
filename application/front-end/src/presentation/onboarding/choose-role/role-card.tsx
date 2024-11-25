@@ -1,39 +1,40 @@
-import { Card } from '@/presentation/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/presentation/components/ui/card';
 import { RoleButton } from './role-button';
+import { PATH } from '@common/constants';
 import React from 'react';
+import { cn } from '@/config/libs/utils';
 
 type ChooseRoleProps = {
-  text: 'mentor' | 'mentee';
   role: 'mentor' | 'mentee';
+  description: string;
+  title: string;
 };
 
-export const RoleCard: React.FC<ChooseRoleProps> = ({ role }) => {
+export const RoleCard: React.FC<ChooseRoleProps> = ({ role, title, description }) => {
   return (
     <>
-      <Card className="flex flex-col items-center gap-10 rounded-lg border border-gray-200 bg-white p-8">
-        <div
-          className="flex w-80 flex-col gap-4"
-        >
-          {role === 'mentor' ? (
-            <>
-              <h1 className="text-xl font-extrabold">Partage ton savoir !</h1>
-              <p className="leading-relaxed text-black/70 mb-6">
-                Tu as de l'expérience ? Inspire et aide les juniors à progresser dans leur carrière et leur vie
-                professionnelle.
-              </p>
-              <RoleButton text="Devenir mentor" />
-            </>
-          ) : (
-            <>
-              <h1 className="text-xl font-extrabold">Booste ta carrière !</h1>
-              <p className="leading-relaxed text-black/70 mb-6">
-                Débute ta carrière avec succès ! Apprends des meilleures pratiques et sois guidé par des experts pour
-                atteindre tes objectifs.
-              </p>
-              <RoleButton text="Devenir mentoré" />
-            </>
-          )}
-        </div>
+      <Card
+        className={cn(
+          'm-auto h-max w-[300px] space-y-4',
+          '[&]:border [&]:shadow-none',
+          'sm:[&]:border sm:[&]:shadow',
+        )}
+      >
+
+            <CardHeader>
+              <CardTitle className="text-2xl">{title}</CardTitle>
+              <CardDescription>{description}</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col items-center gap-4">
+              {role === 'mentor' ? <RoleButton text="Devenir mentor" /> : <RoleButton text="Devenir mentoré" />}
+            </CardContent>
+
       </Card>
     </>
   );

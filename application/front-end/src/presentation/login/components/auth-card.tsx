@@ -20,7 +20,7 @@ type AuthCardProps = {
 export const AuthCard = ({ title, description }: AuthCardProps) => {
   return (
     <Card
-      className={cn('w-[380px] h-max m-auto space-y-4', '[&]:border-0 [&]:shadow-none', 'sm:[&]:border sm:[&]:shadow')}
+      className={cn('m-auto h-max w-[380px] space-y-4', '[&]:border [&]:shadow-none', 'sm:[&]:border sm:[&]:shadow')}
     >
       <CardHeader>
         <CardTitle className="text-2xl">{title}</CardTitle>
