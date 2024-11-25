@@ -14,18 +14,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    createdBy   User   @relation(fields: [createdById], references: [id])
-    createdById String
-
-    @@index([name])
-}
-
 // Necessary for Next auth
 model Account {
     id                       String  @id @default(cuid())
@@ -60,9 +48,18 @@ model User {
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    picture       String?
+    pseudo        String
+    bio           String?
+    stacks        String[]
+    expertise     Expertise[]
+    linkedin      String?
+    twitter       String?
+    github        String?
+    website       String?
+    role          Role      @default(MENTEE)
     accounts      Account[]
     sessions      Session[]
-    posts         Post[]
 }
 
 model VerificationToken {
@@ -71,4 +68,16 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+enum Role {
+    MENTOR
+    MENTEE
+    ADMIN
+}
+
+enum Expertise {
+    FRONTEND
+    BACKEND
+    FULLSTACK
 }
