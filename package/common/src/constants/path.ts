@@ -7,4 +7,5 @@ export const PATH = {
       MENTEE: '/auth/onboarding/mentee',
     },
   },
+  HOME: '/',
 };
