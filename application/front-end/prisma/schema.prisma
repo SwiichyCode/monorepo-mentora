@@ -49,8 +49,8 @@ model User {
     emailVerified DateTime?
     image         String?
     picture       String?
-    pseudo        String
     bio           String?
+    username      String?   
     stacks        String[]
     expertise     Expertise[]
     linkedin      String?
