@@ -27,7 +27,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@domain/*": ["../../package/domain/src/*"]
+      "@domain/*": ["../../package/domain/src/*"],
+      "@common/*": ["../../package/common/src/*"]
     }
   },
   "include": [".eslintrc.cjs", "next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.js", ".next/types/**/*.ts"],
