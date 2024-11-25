@@ -5,10 +5,20 @@ import { signInMenteeSchema } from './form-mentee.schema';
 type AuthFormState =
   | {
       errors?: {
-        pseudo?: string[];
+        username?: string[];
+        bio?: string[];
+        linkedin?: string[];
+        github?: string[];
+        twitter?: string[];
+        website?: string[];
       };
       fieldsValues?: {
-        pseudo: string;
+        username: string;
+        bio: string;
+        linkedin: string;
+        github: string;
+        twitter: string;
+        website?: string;
       };
       message?: string;
     }
@@ -16,12 +26,22 @@ type AuthFormState =
 
 export async function actionForm(state: AuthFormState, formData: FormData): Promise<AuthFormState> {
   const initialFields = {
-    pseudo: String(formData.get('pseudo')),
+    username: String(formData.get('username')),
+    bio: String(formData.get('bio')),
+    linkedin: String(formData.get('linkedin')),
+    github: String(formData.get('github')),
+    twitter: String(formData.get('twitter')),
+    website: String(formData.get('website')),
   };
 
   // Validate the form data
   const validatedFields = signInMenteeSchema.safeParse({
-    pseudo: formData.get('pseudo'),
+    username: formData.get('username'),
+    bio: formData.get('bio'),
+    linkedin: formData.get('linkedin'),
+    github: formData.get('github'),
+    twitter: formData.get('twitter'),
+    website: formData.get('website'),
   });
 
   // If the form data is invalid, return the errors
@@ -29,13 +49,18 @@ export async function actionForm(state: AuthFormState, formData: FormData): Prom
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       fieldsValues: {
-        pseudo: initialFields.pseudo,
+        username: initialFields.username,
+        bio: initialFields.bio,
+        linkedin: initialFields.linkedin,
+        github: initialFields.github,
+        twitter: initialFields.twitter,
+        website: initialFields.website,
       },
-      message: 'Something went wrong',
+      message: "Quelque chose s'est mal passé. Veuillez vérifier les erreurs ci-dessous.",
     };
   }
 
   return {
-    message: 'Form submitted',
+    message: 'Les données ont été validées avec succès.',
   };
 }
