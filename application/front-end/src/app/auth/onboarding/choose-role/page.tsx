@@ -14,7 +14,7 @@ export default function ChooseRolePage() {
         role={'mentee'}
         title={'Booste ta carrière !'}
         description={
-          ' Débute ta carrière avec succès ! Apprends des meilleures pratiques et sois guidé par des experts.'
+          ' Débute ta carrière avec succès ! Apprends des meilleures pratiques et sois guidé par des experts sur les bonnes pratiques.'
         }
       />
     </div>
