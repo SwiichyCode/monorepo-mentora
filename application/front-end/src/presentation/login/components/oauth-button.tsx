@@ -4,11 +4,11 @@ import { Button } from '@/presentation/components/ui/button';
 import { Mail, Github } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 
-type AuthProviderProps = {
+type OauthProviderProps = {
   provider: 'gmail' | 'github';
 };
 
-const OauthButtonIcon = ({ provider }: AuthProviderProps) => {
+const OauthButtonIcon = ({ provider }: OauthProviderProps) => {
   switch (provider) {
     case 'gmail':
       return <Mail className="h-5 w-5" />;
@@ -17,7 +17,7 @@ const OauthButtonIcon = ({ provider }: AuthProviderProps) => {
   }
 };
 
-export const OauthButton = ({ provider }: AuthProviderProps) => {
+export const OauthButton = ({ provider }: OauthProviderProps) => {
   const providerName = provider.charAt(0).toUpperCase() + provider.slice(1);
 
   return (
