@@ -15,15 +15,17 @@ declare module 'next-auth' {
   interface Session extends DefaultSession {
     user: {
       id: string;
+      onboardingCompleted: boolean;
       // ...other properties
       // role: UserRole;
     } & DefaultSession['user'];
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+    // ...other properties
+    // role: UserRole;
+    onboardingCompleted: boolean;
+  }
 }
 
 /**
@@ -37,15 +39,6 @@ export const authConfig = {
       clientId: env.AUTH_GITHUB_ID,
       clientSecret: env.AUTH_GITHUB_SECRET,
     }),
-    /**
-     * ...add more providers here.
-     *
-     * Most other providers require a bit more work than the Discord provider. For example, the
-     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-     *
-     * @see https://next-auth.js.org/providers/github
-     */
   ],
   adapter: PrismaAdapter(db),
   callbacks: {
@@ -54,7 +47,12 @@ export const authConfig = {
       user: {
         ...session.user,
         id: user.id,
+        onboardingCompleted: user.onboardingCompleted,
       },
     }),
+
+    redirect: ({ baseUrl }) => {
+      return Promise.resolve(baseUrl);
+    },
   },
 } satisfies NextAuthConfig;
