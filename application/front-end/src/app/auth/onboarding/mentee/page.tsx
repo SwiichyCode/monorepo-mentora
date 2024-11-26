@@ -1,5 +1,5 @@
-import { NewForm } from '@/presentation/signin/components/form-mentee';
+import { FormMenteeOnBoarding } from '@/presentation/signin/components/form-mentee';
 
 export default function MenteePage() {
-  return <NewForm />;
+  return <FormMenteeOnBoarding />;
 }

@@ -7,6 +7,13 @@ export const signInMenteeSchema = z.object({
   bio: z.string().min(10, {
     message: 'Bio doit contenir au moins 10 caractères.',
   }),
+  stacks: z
+    .array(z.string())
+    .min(1, {
+      message: 'Vous devez choisir au moins 1 stack.',
+    })
+    .optional()
+    .or(z.array(z.string()).length(0)),
   linkedin: z
     .string()
     .url({

@@ -11,6 +11,7 @@ type AuthFormState =
         github?: string[];
         twitter?: string[];
         website?: string[];
+        stacks?: string[];
       };
       fieldsValues?: {
         username: string;
@@ -19,6 +20,7 @@ type AuthFormState =
         github: string;
         twitter: string;
         website?: string;
+        stacks?: string[];
       };
       message?: string;
     }
@@ -32,6 +34,7 @@ export async function actionForm(state: AuthFormState, formData: FormData): Prom
     github: String(formData.get('github')),
     twitter: String(formData.get('twitter')),
     website: String(formData.get('website')),
+    stacks: formData.get('stacks') ? String(formData.get('stacks')).split(',') : [],
   };
 
   // Validate the form data
@@ -42,6 +45,7 @@ export async function actionForm(state: AuthFormState, formData: FormData): Prom
     github: formData.get('github'),
     twitter: formData.get('twitter'),
     website: formData.get('website'),
+    stacks: initialFields.stacks,
   });
 
   // If the form data is invalid, return the errors
@@ -55,8 +59,9 @@ export async function actionForm(state: AuthFormState, formData: FormData): Prom
         github: initialFields.github,
         twitter: initialFields.twitter,
         website: initialFields.website,
+        stacks: initialFields.stacks,
       },
-      message: "Quelque chose s'est mal passé. Veuillez vérifier les erreurs ci-dessous.",
+      message: "Quelque chose s'est mal passé. Veuillez vérifier les erreurs ci-dessus.",
     };
   }
 
